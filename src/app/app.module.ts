@@ -1,16 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
+import { RouterModule } from '@angular/router';
+import { FormBuilder, FormGroup, Validators, FormsModule, NgControl } from '@angular/forms';
+import { Observable } from 'rxjs/Observable';
+import { ReactiveFormsModule } from '@angular/forms'
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
+import { AddComponent } from './components/add/add.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    HomeComponent,
+    AddComponent  
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+        { path: 'home', component: HomeComponent },
+        { path: 'add', component: AddComponent },
+        { path: '', redirectTo: 'home', pathMatch: 'full'},
+        { path: '**', redirectTo: 'home', pathMatch: 'full'}
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

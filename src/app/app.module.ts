@@ -3,6 +3,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormsModule, NgControl } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+import { AuthService } from './services/auth.service';
 import { ReactiveFormsModule } from '@angular/forms'
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -20,6 +25,9 @@ import { AddComponent } from './components/add/add.component';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
     RouterModule.forRoot([
         { path: 'home', component: HomeComponent },
         { path: 'add', component: AddComponent },
@@ -27,7 +35,7 @@ import { AddComponent } from './components/add/add.component';
         { path: '**', redirectTo: 'home', pathMatch: 'full'}
     ])
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

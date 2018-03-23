@@ -1,10 +1,12 @@
 <br>
-<ul *ngFor="let post of posts | async">
+<ul *ngFor="let recipe of recipes | async">
         <li>
-          <strong>{{ post.title}}</strong>
-          <br>
-          {{post.ingredients}}
-          <br>
-          {{post.instructions}}
+          <strong>{{ recipe.title}}</strong>
+          <br><br>
+          Ingredients<br><br>
+          {{recipe.ingredients}}
+          <br><br>
+          Instructions<br><br>
+          {{recipe.instructions}}
         </li>
 </ul>

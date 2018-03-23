@@ -15,13 +15,13 @@ interface Recipes {
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  postsCol: AngularFirestoreCollection<Recipes>;
-  posts: Observable<Recipes[]>;
+  recipeCol: AngularFirestoreCollection<Recipes>;
+  recipes: Observable<Recipes[]>;
   constructor(private afs: AngularFirestore) { }
 
   ngOnInit() {
-    this.postsCol = this.afs.collection('recipes');
-    this.posts = this.postsCol.valueChanges();
+    this.recipeCol = this.afs.collection('recipes');
+    this.recipes = this.recipeCol.valueChanges();
   }
 
 }

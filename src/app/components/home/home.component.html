@@ -1,3 +1,10 @@
-<p>
-<br>  
-</p>
+<br>
+<ul *ngFor="let post of posts | async">
+        <li>
+          <strong>{{ post.title}}</strong>
+          <br>
+          {{post.ingredients}}
+          <br>
+          {{post.instructions}}
+        </li>
+</ul>

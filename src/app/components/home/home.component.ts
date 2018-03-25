@@ -9,6 +9,10 @@ interface Recipes {
   ingredients: string;
 }
 
+interface RecipeID extends Recipes { 
+  id: string; 
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -16,12 +20,18 @@ interface Recipes {
 })
 export class HomeComponent implements OnInit {
   recipeCol: AngularFirestoreCollection<Recipes>;
-  recipes: Observable<Recipes[]>;
+  recipes: any;
   constructor(private afs: AngularFirestore) { }
 
   ngOnInit() {
     this.recipeCol = this.afs.collection('recipes');
-    this.recipes = this.recipeCol.valueChanges();
+    this.recipes = this.recipeCol.snapshotChanges()
+    .map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Recipes;
+        const id = a.payload.doc.id;
+        return { id, data };
+      });
+    });
   }
-
 }

@@ -1,12 +1,12 @@
 <br>
 <ul *ngFor="let recipe of recipes | async">
         <li>
-          <strong>{{ recipe.title}}</strong>
+          <strong>{{ recipe.data.title}}</strong>
           <br><br>
           Ingredients<br><br>
-          {{recipe.ingredients}}
+          {{recipe.data.ingredients}}
           <br><br>
           Instructions<br><br>
-          {{recipe.instructions}}
+          {{recipe.data.instructions}}
         </li>
 </ul>

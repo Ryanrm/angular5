@@ -1,7 +1,7 @@
 <br>
 <ul *ngFor="let recipe of recipes | async">
         <li>
-          <strong>{{ recipe.data.title}}</strong>
+          <strong>{{ recipe.data.title}}</strong> (<a href="#" (click)="deletePost(recipe.id)">delete</a>)
           <br><br>
           Ingredients<br><br>
           {{recipe.data.ingredients}}

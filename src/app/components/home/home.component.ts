@@ -34,4 +34,8 @@ export class HomeComponent implements OnInit {
       });
     });
   }
+
+  deletePost(recipeId) {
+    this.afs.doc('recipes/'+recipeId).delete();
+  }
 }

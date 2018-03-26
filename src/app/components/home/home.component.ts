@@ -14,6 +14,8 @@ import { RecipeID } from '../../interfaces/recipe';
 export class HomeComponent implements OnInit {
   recipeCol: AngularFirestoreCollection<Recipes>;
   recipes: any;
+  recipeDoc: AngularFirestoreDocument<Recipes>;
+  singleRecipe: Observable<Recipes>;
   constructor(private afs: AngularFirestore) { }
 
   ngOnInit() {
@@ -30,5 +32,10 @@ export class HomeComponent implements OnInit {
 
   deletePost(recipeId) {
     this.afs.doc('recipes/'+recipeId).delete();
+  }
+
+  getPost(recipeId) {
+    this.recipeDoc = this.afs.doc('recipes/'+recipeId);
+    this.singleRecipe = this.recipeDoc.valueChanges();
   }
 }

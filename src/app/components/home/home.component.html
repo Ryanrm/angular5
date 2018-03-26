@@ -1,12 +1,9 @@
-<br>
+<h3>{{ (singleRecipe | async)?.title }}</h3>
+<p>{{ (singleRecipe | async)?.ingredients }}</p>
+<p>{{( singleRecipe | async)?.instructions }}</p>
 <ul *ngFor="let recipe of recipes | async">
-        <li>
-          <strong>{{ recipe.data.title}}</strong> (<a href="#" (click)="deletePost(recipe.id)">delete</a>)
-          <br><br>
-          Ingredients<br><br>
-          {{recipe.data.ingredients}}
-          <br><br>
-          Instructions<br><br>
-          {{recipe.data.instructions}}
-        </li>
-</ul>
+    <li (click)="getPost(recipe.id)">
+      <strong>{{ recipe.data.title}}</strong>(<a href="#" (click)="deletePost(recipe.id)">delete</a>)
+      <br>
+    </li>
+  </ul>

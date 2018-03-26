@@ -41,5 +41,7 @@ export class AddComponent {
     this.instructions = post.instructions;
     this.afs.collection('recipes').add({'title': this.title, 'ingredients': this.ingredients, 
                                           'instructions': this.instructions});
+    this.formdata.reset();
+    alert("Recipe added!");
   }
 }

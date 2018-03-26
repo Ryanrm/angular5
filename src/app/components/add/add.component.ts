@@ -3,12 +3,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-
-interface Recipes {
-  title: string;
-  instructions: string;
-  ingredients: string;
-}
+import { Recipes } from '../../interfaces/recipe';
 
 @Component({
   selector: 'app-add',

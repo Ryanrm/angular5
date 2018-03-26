@@ -2,16 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { Recipes } from '../../interfaces/recipe';
+import { RecipeID } from '../../interfaces/recipe';
 
-interface Recipes {
-  title: string;
-  instructions: string;
-  ingredients: string;
-}
-
-interface RecipeID extends Recipes { 
-  id: string; 
-}
 
 @Component({
   selector: 'app-home',

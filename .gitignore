@@ -1,2 +1,4 @@
 environment.prod.ts
 environment.ts
+node_modules/karma/static/context.js
+node_modules/karma/static/karma.js
